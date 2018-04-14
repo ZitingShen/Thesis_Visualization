@@ -17,8 +17,8 @@ void setup() {
   geoMap = new GeoMap(this);
   geoMap.readFile("110m_cultural/ne_110m_admin_0_countries_lakes");   // Reads shapefile.
   
+  String[] result = loadStrings("result.txt");
   //String[] result = loadStrings("result_naive.txt");
-  String[] result = loadStrings("result_naive.txt");
   for(String line: result){
     String[] segs = split(line, ": ");
     float oneGeoProb = float(segs[1])*1000;
@@ -54,13 +54,12 @@ void draw() {
       CIRCLE_R, CIRCLE_R);
   }
   
-  loc = geoMap.geoToScreen(1, 2);
-  
-  fill(0, 0, 180, 180);
+  loc = geoMap.geoToScreen(44, 46);
+  fill(0, 120, 255, 180);
   ellipse(loc.x, loc.y, CIRCLE_R, CIRCLE_R);
       
-  loc = geoMap.geoToScreen(1, 2);
-  fill(0, 0, 200, 180);
+  loc = geoMap.geoToScreen(37, 39);
+  fill(0, 80, 200, 180);
   ellipse(loc.x, loc.y, CIRCLE_R, CIRCLE_R);
   noLoop();
 }
